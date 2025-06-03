@@ -11,9 +11,9 @@ const MainFeature = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 const [activeTab, setActiveTab] = useState('courses')
-  const [selectedCourse, setSelectedCourse] = useState(null)
+const [selectedCourse, setSelectedCourse] = useState(null)
   const [showPreview, setShowPreview] = useState(false)
-
+  const [showLessonModal, setShowLessonModal] = useState(false)
   // Course creation form state
   const [courseForm, setCourseForm] = useState({
     title: '',
@@ -315,10 +315,10 @@ toast.success('Quiz created successfully!')
             </div>
             <span className="text-sm text-surface-600">Instructor</span>
           </div>
-          <button
+<button
             onClick={() => {
               setSelectedCourse(course)
-              setActiveTab('lessons')
+              setShowLessonModal(true)
             }}
             className="text-sm text-primary hover:text-primary-dark font-medium transition-colors"
           >
@@ -498,7 +498,7 @@ toast.success('Quiz created successfully!')
           </motion.div>
         )}
 
-        {/* Add Lessons Tab */}
+{/* Add Lessons Tab */}
         {activeTab === 'lessons' && (
           <motion.div
             key="lessons"
@@ -510,115 +510,36 @@ toast.success('Quiz created successfully!')
           >
             {/* Course Selection */}
             <div className="card p-6">
-              <h3 className="text-xl font-semibold text-surface-900 mb-4">Select Course</h3>
+              <h3 className="text-xl font-semibold text-surface-900 mb-4">Select Course to Add Lessons</h3>
+              <p className="text-surface-600 mb-6">Choose a course to add lessons. Click "Add Lessons" button on any course card to open the lesson creation form.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {courses.map((course) => (
-                  <button
+                  <div
                     key={course.id}
-                    onClick={() => setSelectedCourse(course)}
-                    className={`p-4 rounded-xl border-2 transition-all text-left ${
-                      selectedCourse?.id === course.id
-                        ? 'border-primary bg-primary/5'
-                        : 'border-surface-200 hover:border-surface-300'
-                    }`}
+                    className="p-4 rounded-xl border-2 border-surface-200 hover:border-surface-300 transition-all"
                   >
                     <h4 className="font-medium text-surface-900 mb-1">{course.title}</h4>
-                    <p className="text-sm text-surface-600">{course.category}</p>
-                  </button>
+                    <p className="text-sm text-surface-600 mb-3">{course.category}</p>
+                    <button
+                      onClick={() => {
+                        setSelectedCourse(course)
+                        setShowLessonModal(true)
+                      }}
+                      className="w-full btn-primary text-sm py-2"
+                    >
+                      Add Lessons
+                    </button>
+                  </div>
                 ))}
               </div>
-            </div>
-
-            {/* Lesson Creation Form */}
-            {selectedCourse && (
-              <div className="card p-8">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-accent to-secondary rounded-xl flex items-center justify-center">
-                    <ApperIcon name="BookOpen" className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-surface-900">Add Lesson</h3>
-                    <p className="text-surface-600">Course: {selectedCourse.title}</p>
-                  </div>
+              {courses.length === 0 && (
+                <div className="text-center py-8">
+                  <ApperIcon name="BookOpen" className="w-12 h-12 text-surface-400 mx-auto mb-4" />
+                  <p className="text-surface-600">No courses available. Create a course first to add lessons.</p>
                 </div>
-
-                <form onSubmit={handleLessonSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-surface-700 mb-2">
-                        Lesson Title *
-                      </label>
-                      <input
-                        type="text"
-                        value={lessonForm.title}
-                        onChange={(e) => setLessonForm(prev => ({ ...prev, title: e.target.value }))}
-                        className="input-field"
-                        placeholder="Enter lesson title..."
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-surface-700 mb-2">
-                        Duration (minutes)
-                      </label>
-                      <input
-                        type="number"
-                        value={lessonForm.duration}
-                        onChange={(e) => setLessonForm(prev => ({ ...prev, duration: e.target.value }))}
-                        className="input-field"
-                        placeholder="30"
-                        min="1"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-surface-700 mb-2">
-                      Video URL
-                    </label>
-                    <input
-                      type="url"
-                      value={lessonForm.videoUrl}
-                      onChange={(e) => setLessonForm(prev => ({ ...prev, videoUrl: e.target.value }))}
-                      className="input-field"
-                      placeholder="https://example.com/video.mp4"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-surface-700 mb-2">
-                      Lesson Content
-                    </label>
-                    <textarea
-                      value={lessonForm.content}
-                      onChange={(e) => setLessonForm(prev => ({ ...prev, content: e.target.value }))}
-                      className="input-field min-h-32 resize-none"
-                      placeholder="Enter lesson content, notes, or learning objectives..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-primary flex items-center space-x-2 disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>Adding...</span>
-                      </>
-                    ) : (
-                      <>
-                        <ApperIcon name="Plus" className="w-5 h-5" />
-                        <span>Add Lesson</span>
-                      </>
-                    )}
-                  </button>
-                </form>
-              </div>
-            )}
-</motion.div>
+              )}
+            </div>
+          </motion.div>
         )}
 
         {/* Quiz Builder Tab */}
@@ -972,6 +893,162 @@ toast.success('Quiz created successfully!')
                     <p className="text-surface-500 italic">No lessons added yet</p>
                   )}
                 </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+</AnimatePresence>
+
+      {/* Lesson Creation Modal */}
+      <AnimatePresence>
+        {showLessonModal && selectedCourse && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => {
+              setShowLessonModal(false)
+              setLessonForm({
+                title: '',
+                content: '',
+                duration: '',
+                videoUrl: ''
+              })
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-6 border-b border-surface-200">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-accent to-secondary rounded-xl flex items-center justify-center">
+                      <ApperIcon name="BookOpen" className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-surface-900">Add Lesson</h3>
+                      <p className="text-sm text-surface-600">Course: {selectedCourse.title}</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setShowLessonModal(false)
+                      setLessonForm({
+                        title: '',
+                        content: '',
+                        duration: '',
+                        videoUrl: ''
+                      })
+                    }}
+                    className="p-2 hover:bg-surface-100 rounded-lg transition-colors"
+                  >
+                    <ApperIcon name="X" className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <form onSubmit={(e) => {
+                  e.preventDefault()
+                  handleLessonSubmit(e).then(() => {
+                    setShowLessonModal(false)
+                  })
+                }} className="space-y-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-2">
+                        Lesson Title *
+                      </label>
+                      <input
+                        type="text"
+                        value={lessonForm.title}
+                        onChange={(e) => setLessonForm(prev => ({ ...prev, title: e.target.value }))}
+                        className="input-field"
+                        placeholder="Enter lesson title..."
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-2">
+                        Duration (minutes)
+                      </label>
+                      <input
+                        type="number"
+                        value={lessonForm.duration}
+                        onChange={(e) => setLessonForm(prev => ({ ...prev, duration: e.target.value }))}
+                        className="input-field"
+                        placeholder="30"
+                        min="1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Video URL
+                    </label>
+                    <input
+                      type="url"
+                      value={lessonForm.videoUrl}
+                      onChange={(e) => setLessonForm(prev => ({ ...prev, videoUrl: e.target.value }))}
+                      className="input-field"
+                      placeholder="https://example.com/video.mp4"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Lesson Content
+                    </label>
+                    <textarea
+                      value={lessonForm.content}
+                      onChange={(e) => setLessonForm(prev => ({ ...prev, content: e.target.value }))}
+                      className="input-field min-h-32 resize-none"
+                      placeholder="Enter lesson content, notes, or learning objectives..."
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-end space-x-3 pt-4 border-t">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowLessonModal(false)
+                        setLessonForm({
+                          title: '',
+                          content: '',
+                          duration: '',
+                          videoUrl: ''
+                        })
+                      }}
+                      className="btn-secondary"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="btn-primary flex items-center space-x-2 disabled:opacity-50"
+                    >
+                      {loading ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <span>Adding...</span>
+                        </>
+                      ) : (
+                        <>
+                          <ApperIcon name="Plus" className="w-5 h-5" />
+                          <span>Add Lesson</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
               </div>
             </motion.div>
           </motion.div>
