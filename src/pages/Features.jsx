@@ -49,10 +49,9 @@ const Features = () => {
     { number: '24/7', label: 'Support Available', icon: 'HeadphonesIcon' }
   ]
 
-  return (
+return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
       <Navigation />
-<Navigation />
       
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ApperIcon from '../components/ApperIcon'
+import Navigation from '../components/Navigation'
 
 const About = () => {
   const teamStats = [
@@ -33,32 +34,9 @@ const About = () => {
     }
 ]
 
-  return (
+return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
-      {/* Navigation */}
-      <nav className="bg-glass fixed top-0 left-0 right-0 z-50 border-b border-surface-200/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <ApperIcon name="GraduationCap" className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gradient">LearnFlow</span>
-            </Link>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-surface-600 hover:text-primary transition-colors">Home</Link>
-              <Link to="/features" className="text-surface-600 hover:text-primary transition-colors">Features</Link>
-              <Link to="/about" className="text-surface-600 hover:text-primary transition-colors font-medium text-primary">About</Link>
-              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</Link>
-            </div>
-
-            <Link to="/" className="btn-primary text-sm py-2 px-4">
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
