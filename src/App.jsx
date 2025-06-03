@@ -11,6 +11,7 @@ import AddLessons from './pages/AddLessons'
 import Quiz from './pages/Quiz'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Certifications from './pages/Certifications'
 
 function App() {
 return (
