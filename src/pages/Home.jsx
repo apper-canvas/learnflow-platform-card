@@ -415,20 +415,11 @@ loadData()
                     to="/about" 
                     className="text-surface-300 hover:text-white transition-colors duration-200"
                   >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/careers" 
-                    className="text-surface-300 hover:text-white transition-colors duration-200"
-                  >
-                    Careers
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
+About Us
+                </Link>
+              </li>
+            </ul>
+          </div>
             {/* Support Section */}
             <div>
               <h3 className="text-lg font-semibold mb-6">Support</h3>
@@ -477,20 +468,12 @@ loadData()
                     to="/terms-of-service" 
                     className="text-surface-300 hover:text-white transition-colors duration-200"
                   >
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/cookie-policy" 
-                    className="text-surface-300 hover:text-white transition-colors duration-200"
-                  >
-                    Cookie Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
+Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
+        </div>
 
           <div className="border-t border-surface-700 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
