@@ -193,7 +193,7 @@ const MainFeature = () => {
           </div>
         </div>
         
-        <div className="flex items-center justify-between">
+<div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
               <ApperIcon name="User" className="w-4 h-4 text-white" />
@@ -201,7 +201,10 @@ const MainFeature = () => {
             <span className="text-sm text-surface-600">Instructor</span>
           </div>
           <button
-            onClick={() => setSelectedCourse(course)}
+            onClick={() => {
+              setSelectedCourse(course)
+              setActiveTab('lessons')
+            }}
             className="text-sm text-primary hover:text-primary-dark font-medium transition-colors"
           >
             Add Lessons
@@ -210,7 +213,6 @@ const MainFeature = () => {
       </motion.div>
     )
   }
-
   return (
     <div className="max-w-6xl mx-auto">
       {/* Tab Navigation */}
