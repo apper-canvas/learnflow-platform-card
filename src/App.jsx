@@ -9,6 +9,8 @@ import About from './pages/About'
 import Courses from './pages/Courses'
 import AddLessons from './pages/AddLessons'
 import Quiz from './pages/Quiz'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
 return (
