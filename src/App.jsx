@@ -34,6 +34,7 @@ return (
 <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/help-center" element={<HelpCenter />} />
+        <Route path="/instructors" element={<Instructors />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
