@@ -163,10 +163,159 @@ const Home = () => {
               Experience our advanced course builder that makes creating engaging educational content simple and intuitive.
             </p>
           </div>
-          
-          <MainFeature />
+<MainFeature />
         </div>
-</section>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-16 px-4 sm:px-6 lg:px-8 bg-surface-50 dark:bg-surface-800">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <motion.h2 
+              className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Platform Features
+            </motion.h2>
+            <motion.p 
+              className="text-lg text-surface-600 dark:text-surface-300 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Discover the powerful features that make LearnFlow the perfect platform for modern education and training.
+            </motion.p>
+          </div>
+          
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            {[
+              {
+                icon: "BookOpen",
+                title: "Interactive Learning",
+                description: "Engage with interactive content, quizzes, and multimedia resources designed to enhance your learning experience."
+              },
+              {
+                icon: "Users",
+                title: "Expert Instructors",
+                description: "Learn from industry professionals and certified educators who bring real-world experience to every lesson."
+              },
+              {
+                icon: "TrendingUp",
+                title: "Progress Tracking",
+                description: "Monitor your learning journey with detailed analytics, progress reports, and achievement tracking."
+              },
+              {
+                icon: "Clock",
+                title: "Flexible Learning",
+                description: "Study at your own pace with 24/7 access to courses, offline content, and mobile-friendly lessons."
+              },
+              {
+                icon: "Award",
+                title: "Certification",
+                description: "Earn industry-recognized certificates and digital badges to showcase your skills and knowledge."
+              },
+              {
+                icon: "MessageCircle",
+                title: "Community Support",
+                description: "Connect with fellow learners, participate in discussions, and get help from our supportive community."
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                className="card p-6 hover:shadow-soft transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
+                  <ApperIcon name={feature.icon} className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-surface-900 dark:text-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-surface-600 dark:text-surface-300 leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <motion.h2 
+              className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              About LearnFlow
+            </motion.h2>
+            <motion.p 
+              className="text-lg text-surface-600 dark:text-surface-300 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              We're on a mission to democratize education and make high-quality learning accessible to everyone, everywhere.
+            </motion.p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 className="text-2xl font-bold text-surface-900 dark:text-white mb-6">Our Mission</h3>
+              <p className="text-surface-600 dark:text-surface-300 mb-6 leading-relaxed">
+                At LearnFlow, we believe that education should be engaging, accessible, and effective. Our platform combines cutting-edge technology with proven pedagogical methods to create an unparalleled learning experience.
+              </p>
+              <p className="text-surface-600 dark:text-surface-300 leading-relaxed">
+                Whether you're a student looking to expand your knowledge, a professional seeking to advance your career, or an educator wanting to share your expertise, LearnFlow provides the tools and community to help you succeed.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              className="grid grid-cols-2 gap-6"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {[
+                { label: "Students Worldwide", value: "50K+", icon: "Users" },
+                { label: "Course Completions", value: "125K+", icon: "BookOpen" },
+                { label: "Expert Instructors", value: "500+", icon: "Award" },
+                { label: "Countries Reached", value: "80+", icon: "Globe" }
+              ].map((stat, index) => (
+                <div key={index} className="card p-6 text-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <ApperIcon name={stat.icon} className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="text-2xl font-bold text-surface-900 dark:text-white mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-surface-600 dark:text-surface-400 text-sm">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-surface-900 dark:bg-surface-800 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
