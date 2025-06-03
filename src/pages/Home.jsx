@@ -422,12 +422,12 @@ loadData()
                 <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+<li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
           
-<div className="border-t border-surface-700 mt-8 pt-8 text-center text-surface-400">
+          <div className="border-t border-surface-700 mt-8 pt-8 text-center text-surface-400">
             <p>&copy; 2024 LearnFlow. All rights reserved. Built with passion for education.</p>
           </div>
         </div>
