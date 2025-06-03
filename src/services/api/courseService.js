@@ -42,7 +42,5 @@ export const delete_ = async (id) => {
   
   courses.splice(index, 1)
   return true
+return true
 }
-
-// Alias for delete (since delete is a reserved keyword)
-export const delete = delete_
