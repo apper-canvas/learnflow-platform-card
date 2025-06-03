@@ -52,14 +52,9 @@ const AddLessons = () => {
     }))
   }
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault()
     
-    if (!formData.title || !formData.content || !formData.courseId) {
-      toast.error('Please fill in all required fields')
-      return
-    }
-
     try {
       setFormLoading(true)
       
@@ -138,7 +133,7 @@ const AddLessons = () => {
   const getCourseTitle = (courseId) => {
     const course = courses.find(c => c.id === courseId)
     return course ? course.title : 'Unknown Course'
-  }
+}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">

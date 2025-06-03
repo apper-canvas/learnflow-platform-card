@@ -19,9 +19,9 @@ const Home = () => {
         const [coursesResult, enrollmentsResult] = await Promise.all([
           courseService.getAll(),
           enrollmentService.getAll()
-        ])
+])
         setFeaturedCourses(coursesResult?.slice(0, 6) || [])
-setEnrollments(enrollmentsResult || [])
+        setEnrollments(enrollmentsResult || [])
       } catch (err) {
         setError(err.message)
       } finally {
@@ -115,12 +115,12 @@ loadData()
             </div>
             
             {/* Mobile Menu Button */}
+{/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2 rounded-lg hover:bg-surface-100 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle mobile menu"
             >
-              <svg className="w-6 h-6 text-surface-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -129,8 +129,6 @@ loadData()
               </svg>
             </button>
           </div>
-          
-          {/* Mobile Navigation Menu */}
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t border-surface-200/50 bg-white/95 backdrop-blur-lg">
               <div className="flex flex-col space-y-2">
@@ -165,7 +163,7 @@ loadData()
         </div>
       </nav>
 
-      {/* Hero Section */}
+{/* Hero Section */}
       <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center">
           <motion.div
@@ -180,7 +178,7 @@ loadData()
               Transform your future with our comprehensive online learning platform. 
               Access world-class courses, expert instructors, and interactive content.
             </p>
-<div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <button className="btn-primary text-lg px-8 py-4">
                 Start Learning Now
               </button>
@@ -189,51 +187,36 @@ loadData()
               </button>
             </div>
           </motion.div>
-        </div>
-      </section>
-{/* Enhanced Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <button className="btn-primary flex items-center justify-center space-x-2">
-                <ApperIcon name="Play" className="w-5 h-5" />
-                <span>Start Learning</span>
-              </button>
-            </motion.div>
 
-            {/* Stats */}
-            <motion.div 
-              className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              {stats.map((stat, index) => (
-                <div key={index} className="card p-6 text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <ApperIcon name={stat.icon} className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-surface-900 dark:text-white mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-surface-600 dark:text-surface-400 text-sm">
-                    {stat.label}
-                  </div>
+          {/* Stats */}
+          <motion.div 
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {stats.map((stat, index) => (
+              <div key={index} className="card p-6 text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <ApperIcon name={stat.icon} className="w-6 h-6 text-white" />
                 </div>
-              ))}
-            </motion.div>
-          </div>
+                <div className="text-2xl sm:text-3xl font-bold text-surface-900 dark:text-white mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-surface-600 dark:text-surface-400 text-sm">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* Main Feature Section */}
-      <section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Enhanced Hero Section */}
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+{/* Main Feature Section */}
+
+<section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4">
@@ -243,7 +226,7 @@ loadData()
               Experience our advanced course builder that makes creating engaging educational content simple and intuitive.
             </p>
           </div>
-<MainFeature />
+          <MainFeature />
         </div>
       </section>
 

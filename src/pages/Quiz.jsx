@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'react-toastify'
-import { 
+import Navigation from '../components/Navigation'
+import {
   BookOpen, 
   Clock, 
   Award, 
@@ -264,7 +265,7 @@ const Quiz = () => {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-2xl shadow-soft p-6 mb-8"
         >
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-surface-400 w-5 h-5" />
               <input
@@ -275,7 +276,6 @@ const Quiz = () => {
                 className="input-field pl-10"
               />
             </div>
-            
             <select
               value={selectedSubject}
               onChange={(e) => setSelectedSubject(e.target.value)}
@@ -689,12 +689,14 @@ const Quiz = () => {
         return <QuizBrowseView />
     }
   }
-
-  return (
-    <AnimatePresence mode="wait">
-      {renderCurrentView()}
-    </AnimatePresence>
-  )
 }
 
-export default Quiz
+  return (
+    <div>
+      <Navigation />
+      <AnimatePresence mode="wait">
+        {renderCurrentView()}
+      </AnimatePresence>
+    </div>
+  )
+}

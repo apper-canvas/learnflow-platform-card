@@ -13,7 +13,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errors, setErrors] = useState({})
 
-  const handleInputChange = (e) => {
+const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -100,7 +100,7 @@ const Contact = () => {
       value: '123 Learning Street',
       description: 'San Francisco, CA 94105'
     }
-  ]
+]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import ApperIcon from '../components/ApperIcon'
+import Navigation from '../components/Navigation'
 
 const Features = () => {
   const features = [
@@ -44,32 +45,15 @@ const Features = () => {
   const stats = [
     { number: '10,000+', label: 'Active Learners', icon: 'Users' },
     { number: '500+', label: 'Courses Available', icon: 'BookOpen' },
-    { number: '95%', label: 'Completion Rate', icon: 'TrendingUp' },
+{ number: '95%', label: 'Completion Rate', icon: 'TrendingUp' },
     { number: '24/7', label: 'Support Available', icon: 'HeadphonesIcon' }
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
-      {/* Navigation */}
-      <nav className="bg-white/90 backdrop-blur-sm border-b border-surface-200/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <motion.div 
-              className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              <ApperIcon name="GraduationCap" className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-gradient">LearnFlow</span>
-            </motion.div>
-            <div className="flex space-x-8">
-              <a href="/" className="text-surface-700 hover:text-primary transition-colors">Home</a>
-              <a href="/features" className="text-primary font-medium">Features</a>
-              <a href="/contact" className="text-surface-700 hover:text-primary transition-colors">Contact</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+      <Navigation />
+<Navigation />
+      
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">

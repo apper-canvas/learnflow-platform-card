@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { toast } from 'react-toastify'
 import { Search, Filter, BookOpen, Clock, Users, Star, ChevronRight, GraduationCap } from 'lucide-react'
-import * as courseService from '../services/api/courseService'
+const [searchTerm, setSearchTerm] = useState('');
 
-const Courses = () => {
-  const [courses, setCourses] = useState([])
-  const [filteredCourses, setFilteredCourses] = useState([])
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
+      <Navigation />
+      
+      {/* Header */}
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')

@@ -4,9 +4,9 @@ import ApperIcon from '../components/ApperIcon'
 
 const About = () => {
   const teamStats = [
-    { label: "Team Members", value: "150+", icon: "Users" },
-    { label: "Years Experience", value: "10+", icon: "Calendar" },
-    { label: "Countries", value: "25+", icon: "Globe" },
+    { label: "Active Students", value: "50K+", icon: "Users" },
+    { label: "Expert Instructors", value: "500+", icon: "GraduationCap" },
+    { label: "Countries Served", value: "80+", icon: "Globe" },
     { label: "Projects Delivered", value: "500+", icon: "Award" }
   ]
 
@@ -31,10 +31,10 @@ const About = () => {
       title: "Community",
       description: "Building a supportive global community where learners and educators can thrive together."
     }
-  ]
+]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20 bg-learning-pattern">
+    <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
       {/* Navigation */}
       <nav className="bg-glass fixed top-0 left-0 right-0 z-50 border-b border-surface-200/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
