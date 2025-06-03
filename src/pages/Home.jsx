@@ -427,7 +427,7 @@ loadData()
             </div>
           </div>
           
-          <div className="border-t border-surface-700 mt-8 pt-8 text-center text-surface-400">
+<div className="border-t border-surface-700 mt-8 pt-8 text-center text-surface-400">
             <p>&copy; 2024 LearnFlow. All rights reserved. Built with passion for education.</p>
           </div>
         </div>
