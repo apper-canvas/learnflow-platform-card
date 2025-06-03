@@ -107,10 +107,10 @@ loadData()
                 Contact
               </Link>
             </div>
-            {/* Desktop Action Buttons */}
-<div className="hidden md:flex items-center space-x-3">
-              <button className="btn-secondary">Sign In</button>
-              <button className="btn-primary">Get Started</button>
+{/* Desktop Action Buttons */}
+            <div className="hidden md:flex items-center space-x-3">
+              <Link to="/login" className="btn-secondary">Sign In</Link>
+              <Link to="/register" className="btn-primary">Get Started</Link>
             </div>
             
             {/* Mobile Menu Button */}
