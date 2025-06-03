@@ -677,8 +677,7 @@ const Quiz = () => {
       </div>
     )
   }
-
-  // Render appropriate view
+// Render appropriate view
   const renderCurrentView = () => {
     switch (activeView) {
       case 'taking':
@@ -689,7 +688,6 @@ const Quiz = () => {
         return <QuizBrowseView />
     }
   }
-}
 
   return (
     <div>
@@ -700,3 +698,5 @@ const Quiz = () => {
     </div>
   )
 }
+
+export default Quiz
