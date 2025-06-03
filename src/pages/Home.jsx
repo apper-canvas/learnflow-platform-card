@@ -71,13 +71,11 @@ const Home = () => {
               </div>
               <span className="text-xl font-bold text-gradient">LearnFlow</span>
             </motion.div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#courses" className="text-surface-600 hover:text-primary transition-colors">Courses</a>
+<div className="hidden md:flex items-center space-x-8">
+              <a href="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</a>
+              <a href="#features" className="text-surface-600 hover:text-primary transition-colors">Features</a>
               <a href="#about" className="text-surface-600 hover:text-primary transition-colors">About</a>
-              <a href="#contact" className="text-surface-600 hover:text-primary transition-colors">Contact</a>
             </div>
-
             <div className="flex items-center space-x-4">
               <button
                 onClick={toggleDarkMode}

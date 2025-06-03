@@ -15,11 +15,11 @@ export default {
         secondary: {
           DEFAULT: '#f59e0b',
           light: '#fbbf24',
-          dark: '#d97706'
-        },
-accent: '#10b981',
-        surface: {
-          50: '#f8fafc',
+dark: '#d97706'
+      },
+      accent: '#10b981',
+      surface: {
+        50: '#f8fafc',
           100: '#f1f5f9',
           200: '#e2e8f0',
           300: '#cbd5e1',
