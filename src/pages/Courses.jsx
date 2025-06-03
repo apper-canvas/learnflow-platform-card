@@ -166,14 +166,11 @@ const Courses = () => {
         enrollmentDate: new Date().toISOString()
       }
       
+// Import enrollment service
+      const { createEnrollment } = await import('../services/enrollmentService.js')
+      
       // Use enrollment service to create enrollment
-      await fetch('/api/enrollments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(enrollmentData)
-      })
+      await createEnrollment(enrollmentData)
       
       toast.success(`Successfully enrolled in ${selectedCourse.title}!`)
       setShowEnrollModal(false)
