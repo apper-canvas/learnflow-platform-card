@@ -178,15 +178,15 @@ loadData()
             </h1>
             <p className="text-xl text-surface-600 mb-8 max-w-3xl mx-auto">
               Transform your future with our comprehensive online learning platform. 
-              Access world-class courses, expert instructors, and interactive content.
+Access world-class courses, expert instructors, and interactive content.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <button className="btn-primary text-lg px-8 py-4">
+              <Link to="/courses" className="btn-primary text-lg px-8 py-4">
                 Start Learning Now
-              </button>
-              <button className="btn-secondary text-lg px-8 py-4">
+              </Link>
+              <Link to="/features" className="btn-secondary text-lg px-8 py-4">
                 Watch Demo
-              </button>
+              </Link>
             </div>
           </motion.div>
 
