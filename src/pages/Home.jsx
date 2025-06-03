@@ -69,12 +69,12 @@ const Home = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
                 <ApperIcon name="GraduationCap" className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gradient">LearnFlow</span>
+<span className="text-xl font-bold text-gradient">LearnFlow</span>
             </motion.div>
-<div className="hidden md:flex items-center space-x-8">
-              <a href="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</a>
-              <a href="#features" className="text-surface-600 hover:text-primary transition-colors">Features</a>
-              <a href="#about" className="text-surface-600 hover:text-primary transition-colors">About</a>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</Link>
+              <Link to="/features" className="text-surface-600 hover:text-primary transition-colors">Features</Link>
+              <Link to="/about" className="text-surface-600 hover:text-primary transition-colors">About</Link>
             </div>
             <div className="flex items-center space-x-4">
               <button
