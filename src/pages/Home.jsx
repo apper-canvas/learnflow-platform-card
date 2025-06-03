@@ -94,16 +94,15 @@ loadData()
               <Link to="/about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 About
               </Link>
-              <a href="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+<Link to="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Courses
-              </a>
-              <a href="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
-<a href="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              </Link>
+              <Link to="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Add Lessons
-              </a>
-              <a href="/quiz" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              </Link>
+              <Link to="/quiz" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Quiz
-              </a>
+              </Link>
               <Link to="/contact" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Contact
               </Link>
@@ -140,16 +139,15 @@ loadData()
                 <Link to="/about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   About
                 </Link>
-                <a href="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+<Link to="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Courses
-                </a>
-                <a href="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
-<a href="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                </Link>
+                <Link to="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Add Lessons
-                </a>
-                <a href="/quiz" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                </Link>
+                <Link to="/quiz" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Quiz
-                </a>
+                </Link>
                 <Link to="/contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Contact
                 </Link>
