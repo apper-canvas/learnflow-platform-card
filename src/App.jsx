@@ -13,6 +13,7 @@ import Quiz from './pages/Quiz'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Certifications from './pages/Certifications'
+import TermsOfService from './pages/TermsOfService'
 function App() {
 return (
 <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20 bg-learning-pattern">
