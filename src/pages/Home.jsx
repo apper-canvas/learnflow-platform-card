@@ -16,10 +16,10 @@ const Home = () => {
     const loadData = async () => {
       setLoading(true)
       try {
-        const [coursesResult, enrollmentsResult] = await Promise.all([
+const [coursesResult, enrollmentsResult] = await Promise.all([
           courseService.getAll(),
           enrollmentService.getAll()
-])
+        ])
         setFeaturedCourses(coursesResult?.slice(0, 6) || [])
         setEnrollments(enrollmentsResult || [])
       } catch (err) {
@@ -109,13 +109,13 @@ loadData()
             </div>
             
             {/* Desktop Action Buttons */}
-            <div className="hidden md:flex items-center space-x-3">
+<div className="hidden md:flex items-center space-x-3">
               <button className="btn-secondary">Sign In</button>
               <button className="btn-primary">Get Started</button>
-</div>
+            </div>
             
             {/* Mobile Menu Button */}
-            <button 
+            <button
               className="md:hidden p-2 rounded-lg hover:bg-surface-100 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -160,9 +160,9 @@ loadData()
             </div>
           )}
         </div>
-      </nav>
+</nav>
 
-{/* Hero Section */}
+      {/* Hero Section */}
       <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center">
           <motion.div
@@ -205,24 +205,9 @@ loadData()
                 <div className="text-surface-600 dark:text-surface-400 text-sm">
                   {stat.label}
                 </div>
-              </div>
+</div>
             ))}
           </motion.div>
-        </div>
-</section>
-
-      {/* Main Feature Section */}
-      <section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4">
-              Interactive Course Creation Studio
-            </h2>
-            <p className="text-lg text-surface-600 dark:text-surface-300 max-w-2xl mx-auto">
-              Experience our advanced course builder that makes creating engaging educational content simple and intuitive.
-            </p>
-          </div>
-          <MainFeature />
         </div>
       </section>
 
@@ -416,9 +401,9 @@ loadData()
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-surface-300">
                 <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+<li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-<li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
