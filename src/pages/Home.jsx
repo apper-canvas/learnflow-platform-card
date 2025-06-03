@@ -29,102 +29,173 @@ setEnrollments(enrollmentsResult || [])
       }
     }
     
-    loadData()
+loadData()
   }, [])
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
-    document.documentElement.classList.toggle('dark')
   }
 
   const stats = [
-    { label: "Active Courses", value: featuredCourses?.length || 0, icon: "BookOpen" },
-    { label: "Total Enrollments", value: enrollments?.length || 0, icon: "Users" },
-    { label: "Learning Hours", value: "2,450+", icon: "Clock" },
-    { label: "Success Rate", value: "94%", icon: "TrendingUp" }
+    { icon: "Users", value: "50K+", label: "Active Students" },
+    { icon: "BookOpen", value: "1,200+", label: "Courses" },
+    { icon: "Award", value: "98%", label: "Success Rate" },
+    { icon: "Globe", value: "80+", label: "Countries" }
   ]
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-surface-600 font-medium">Loading LearnFlow...</span>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-surface-600">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-600 mb-4">Error: {error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="btn-primary"
+          >
+            Retry
+          </button>
         </div>
       </div>
     )
   }
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
+    <div className="min-h-screen">
       {/* Navigation */}
-<nav className="bg-glass fixed top-0 left-0 right-0 z-50 border-b border-surface-200/50">
+      <nav className="bg-white/95 backdrop-blur-lg border-b border-surface-200/50 sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <motion.div 
-              className="flex items-center space-x-3"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <ApperIcon name="GraduationCap" className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-surface-900 dark:text-white">LearnFlow</span>
-            </motion.div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/courses" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-2">
+              <ApperIcon size={32} />
+              <span className="text-xl font-bold text-surface-800">LearnFlow</span>
+            </div>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
+              <a href="#home" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                Home
+              </a>
+              <a href="#features" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                Features
+              </a>
+              <a href="#about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                About
+              </a>
+              <a href="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Courses
-              </Link>
-              <Link to="/add-lessons" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+              </a>
+              <a href="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Add Lessons
-              </Link>
-              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+              </a>
+              <a href="/quiz" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                Quiz
+              </a>
+              <a href="#contact" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Contact
-              </Link>
+              </a>
             </div>
-
-            <div className="flex items-center space-x-4">
-              <button 
-                onClick={toggleDarkMode}
-                className="p-2 rounded-lg bg-surface-100 hover:bg-surface-200 transition-colors"
-              >
-                <ApperIcon name={darkMode ? "Sun" : "Moon"} className="w-5 h-5" />
-              </button>
-              <button className="btn-primary text-sm py-2 px-4">
-                Get Started
-              </button>
+            
+            {/* Desktop Action Buttons */}
+            <div className="hidden md:flex items-center space-x-3">
+              <button className="btn-secondary">Sign In</button>
+              <button className="btn-primary">Get Started</button>
             </div>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 rounded-lg hover:bg-surface-100 transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              <svg className="w-6 h-6 text-surface-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+          
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden py-4 border-t border-surface-200/50 bg-white/95 backdrop-blur-lg">
+              <div className="flex flex-col space-y-2">
+                <a href="#home" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Home
+                </a>
+                <a href="#features" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Features
+                </a>
+                <a href="#about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  About
+                </a>
+                <a href="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Courses
+                </a>
+                <a href="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Add Lessons
+                </a>
+                <a href="/quiz" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Quiz
+                </a>
+                <a href="#contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Contact
+                </a>
+                <div className="pt-4 flex flex-col space-y-3">
+                  <button className="btn-secondary w-full">Sign In</button>
+                  <button className="btn-primary w-full">Get Started</button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
+      <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-surface-900 mb-6">
+              Learn. <span className="text-gradient">Grow.</span> Succeed.
+            </h1>
+            <p className="text-xl text-surface-600 mb-8 max-w-3xl mx-auto">
+              Transform your future with our comprehensive online learning platform. 
+              Access world-class courses, expert instructors, and interactive content.
+            </p>
+<div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="btn-primary text-lg px-8 py-4">
+                Start Learning Now
+              </button>
+              <button className="btn-secondary text-lg px-8 py-4">
+                Watch Demo
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+{/* Enhanced Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-surface-900 dark:text-white mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Transform Your Learning
-              <span className="text-gradient block mt-2">Experience Today</span>
-            </motion.h1>
-            
-            <motion.p 
-              className="text-lg sm:text-xl text-surface-600 dark:text-surface-300 mb-8 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Join thousands of learners in our interactive platform designed for modern education. 
-              Create, learn, and grow with cutting-edge tools and expert instructors.
-            </motion.p>
-
-<motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
