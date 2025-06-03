@@ -5,7 +5,7 @@ import { BookOpen } from 'lucide-react'
 import MainFeature from '../components/MainFeature'
 import ApperIcon from '../components/ApperIcon'
 import * as courseService from '../services/api/courseService'
-import * * enrollmentService from '../services/api/enrollmentService'
+import * as enrollmentService from '../services/api/enrollmentService'
 const Home = () => {
   const [featuredCourses, setFeaturedCourses] = useState([])
   const [enrollments, setEnrollments] = useState([])
