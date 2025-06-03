@@ -112,10 +112,9 @@ loadData()
             <div className="hidden md:flex items-center space-x-3">
               <button className="btn-secondary">Sign In</button>
               <button className="btn-primary">Get Started</button>
-            </div>
+</div>
             
             {/* Mobile Menu Button */}
-{/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2 rounded-lg hover:bg-surface-100 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -210,13 +209,10 @@ loadData()
             ))}
           </motion.div>
         </div>
-      </section>
+</section>
 
-      {/* Enhanced Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-{/* Main Feature Section */}
-
-<section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Main Feature Section */}
+      <section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4">
