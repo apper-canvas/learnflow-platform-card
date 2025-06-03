@@ -18,6 +18,7 @@ return (
 <Route path="/about" element={<About />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/add-lessons" element={<AddLessons />} />
+        <Route path="/quiz" element={<Quiz />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

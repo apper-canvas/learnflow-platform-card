@@ -21,13 +21,14 @@ const Home = () => {
           enrollmentService.getAll()
         ])
         setFeaturedCourses(coursesResult?.slice(0, 6) || [])
-        setEnrollments(enrollmentsResult || [])
+setEnrollments(enrollmentsResult || [])
       } catch (err) {
         setError(err.message)
       } finally {
         setLoading(false)
       }
     }
+    
     loadData()
   }, [])
 
