@@ -8,11 +8,11 @@ import Features from './pages/Features'
 import About from './pages/About'
 import Courses from './pages/Courses'
 import AddLessons from './pages/AddLessons'
+import Enterprise from './pages/Enterprise'
 import Quiz from './pages/Quiz'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Certifications from './pages/Certifications'
-
 function App() {
 return (
 <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20 bg-learning-pattern">
