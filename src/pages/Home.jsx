@@ -84,9 +84,9 @@ const Home = () => {
               <ApperIcon name={darkMode ? "Sun" : "Moon"} className="w-5 h-5" />
             </button>
             <button className="btn-primary text-sm py-2 px-4">
+<button className="btn-primary text-sm py-2 px-4">
               Get Started
             </button>
-            </div>
           </div>
         </div>
       </nav>
