@@ -10,7 +10,7 @@ const MainFeature = () => {
   const [lessons, setLessons] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [activeTab, setActiveTab] = useState('create')
+const [activeTab, setActiveTab] = useState('courses')
   const [selectedCourse, setSelectedCourse] = useState(null)
   const [showPreview, setShowPreview] = useState(false)
 
@@ -102,8 +102,7 @@ const MainFeature = () => {
         lessons: []
       })
       
-      toast.success('Course created successfully!')
-      setActiveTab('manage')
+toast.success('Course created successfully!')
     } catch (err) {
       setError(err.message)
       toast.error('Failed to create course')
@@ -184,8 +183,8 @@ const MainFeature = () => {
         points: 1
       })
       
-      toast.success('Quiz created successfully!')
-      setActiveTab('manage')
+toast.success('Quiz created successfully!')
+      setActiveTab('courses')
     } catch (err) {
       setError(err.message)
       toast.error('Failed to create quiz')
@@ -335,11 +334,9 @@ const MainFeature = () => {
 <div className="flex flex-wrap justify-center mb-8">
         <div className="bg-surface-100 p-2 rounded-2xl flex space-x-2">
           {[
-            { id: 'create', label: 'Create Course', icon: 'Plus' },
-            { id: 'manage', label: 'Manage Courses', icon: 'Settings' },
+            { id: 'courses', label: 'Courses', icon: 'BookOpen' },
             { id: 'lessons', label: 'Add Lessons', icon: 'BookOpen' },
-            { id: 'quiz', label: 'Create Quiz', icon: 'FileQuestion' },
-            { id: 'courses', label: 'Browse Courses', icon: 'BookOpen' }
+            { id: 'quiz', label: 'Create Quiz', icon: 'FileQuestion' }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -357,157 +354,147 @@ const MainFeature = () => {
         </div>
       </div>
 
-      <AnimatePresence mode="wait">
-        {/* Create Course Tab */}
-        {activeTab === 'create' && (
+<AnimatePresence mode="wait">
+        {/* Courses Tab */}
+        {activeTab === 'courses' && (
           <motion.div
-            key="create"
+            key="courses"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="card p-8"
+            className="space-y-8"
           >
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <ApperIcon name="Plus" className="w-6 h-6 text-white" />
+            {/* Course Creation Section */}
+            <div className="card p-8">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                  <ApperIcon name="Plus" className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-surface-900">Create New Course</h3>
+                  <p className="text-surface-600">Build an engaging learning experience</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-surface-900">Create New Course</h3>
-                <p className="text-surface-600">Build an engaging learning experience</p>
-              </div>
-            </div>
 
-            <form onSubmit={handleCourseSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <form onSubmit={handleCourseSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Course Title *
+                    </label>
+                    <input
+                      type="text"
+                      value={courseForm.title}
+                      onChange={(e) => setCourseForm(prev => ({ ...prev, title: e.target.value }))}
+                      className="input-field"
+                      placeholder="Enter course title..."
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Category
+                    </label>
+                    <select
+                      value={courseForm.category}
+                      onChange={(e) => setCourseForm(prev => ({ ...prev, category: e.target.value }))}
+                      className="input-field"
+                    >
+                      <option value="">Select category</option>
+                      {categories.map(cat => (
+                        <option key={cat} value={cat}>{cat}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-surface-700 mb-2">
-                    Course Title *
+                    Description *
                   </label>
-                  <input
-                    type="text"
-                    value={courseForm.title}
-                    onChange={(e) => setCourseForm(prev => ({ ...prev, title: e.target.value }))}
-                    className="input-field"
-                    placeholder="Enter course title..."
+                  <textarea
+                    value={courseForm.description}
+                    onChange={(e) => setCourseForm(prev => ({ ...prev, description: e.target.value }))}
+                    className="input-field min-h-32 resize-none"
+                    placeholder="Describe what students will learn..."
                     required
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-surface-700 mb-2">
-                    Category
-                  </label>
-                  <select
-                    value={courseForm.category}
-                    onChange={(e) => setCourseForm(prev => ({ ...prev, category: e.target.value }))}
-                    className="input-field"
-                  >
-                    <option value="">Select category</option>
-                    {categories.map(cat => (
-                      <option key={cat} value={cat}>{cat}</option>
-                    ))}
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Price ($)
+                    </label>
+                    <input
+                      type="number"
+                      value={courseForm.price}
+                      onChange={(e) => setCourseForm(prev => ({ ...prev, price: e.target.value }))}
+                      className="input-field"
+                      placeholder="99.00"
+                      min="0"
+                      step="0.01"
+                    />
+                  </div>
+
+                  <div className="flex items-end">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="btn-primary w-full flex items-center justify-center space-x-2 disabled:opacity-50"
+                    >
+                      {loading ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <span>Creating...</span>
+                        </>
+                      ) : (
+                        <>
+                          <ApperIcon name="Plus" className="w-5 h-5" />
+                          <span>Create Course</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-surface-700 mb-2">
-                  Description *
-                </label>
-                <textarea
-                  value={courseForm.description}
-                  onChange={(e) => setCourseForm(prev => ({ ...prev, description: e.target.value }))}
-                  className="input-field min-h-32 resize-none"
-                  placeholder="Describe what students will learn..."
-                  required
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-surface-700 mb-2">
-                    Price ($)
-                  </label>
-                  <input
-                    type="number"
-                    value={courseForm.price}
-                    onChange={(e) => setCourseForm(prev => ({ ...prev, price: e.target.value }))}
-                    className="input-field"
-                    placeholder="99.00"
-                    min="0"
-                    step="0.01"
-                  />
-                </div>
-
-                <div className="flex items-end">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-primary w-full flex items-center justify-center space-x-2 disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>Creating...</span>
-                      </>
-                    ) : (
-                      <>
-                        <ApperIcon name="Plus" className="w-5 h-5" />
-                        <span>Create Course</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
-            </form>
-          </motion.div>
-        )}
-
-        {/* Manage Courses Tab */}
-        {activeTab === 'manage' && (
-          <motion.div
-            key="manage"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-surface-900 mb-2">Course Management</h3>
-              <p className="text-surface-600">Manage your created courses and track performance</p>
+              </form>
             </div>
 
-            {loading ? (
-              <div className="card p-8 text-center">
-                <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-surface-600">Loading courses...</p>
+            {/* Course Management Section */}
+            <div>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-surface-900 mb-2">Course Management</h3>
+                <p className="text-surface-600">Manage your created courses and track performance</p>
               </div>
-            ) : error ? (
-              <div className="card p-8 text-center">
-                <ApperIcon name="AlertTriangle" className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-                <p className="text-surface-600">Unable to load courses</p>
-              </div>
-            ) : courses.length === 0 ? (
-              <div className="card p-8 text-center">
-                <ApperIcon name="BookOpen" className="w-12 h-12 text-surface-400 mx-auto mb-4" />
-                <p className="text-surface-600 mb-4">No courses created yet</p>
-                <button
-                  onClick={() => setActiveTab('create')}
-                  className="btn-primary"
-                >
-                  Create Your First Course
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <AnimatePresence>
-                  {courses.map((course) => (
-                    <CourseCard key={course.id} course={course} />
-                  ))}
-                </AnimatePresence>
-              </div>
-            )}
+
+              {loading ? (
+                <div className="card p-8 text-center">
+                  <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-surface-600">Loading courses...</p>
+                </div>
+              ) : error ? (
+                <div className="card p-8 text-center">
+                  <ApperIcon name="AlertTriangle" className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                  <p className="text-surface-600">Unable to load courses</p>
+                </div>
+              ) : courses.length === 0 ? (
+                <div className="card p-8 text-center">
+                  <ApperIcon name="BookOpen" className="w-12 h-12 text-surface-400 mx-auto mb-4" />
+                  <p className="text-surface-600 mb-4">No courses created yet</p>
+                  <p className="text-surface-500">Create your first course using the form above</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <AnimatePresence>
+                    {courses.map((course) => (
+                      <CourseCard key={course.id} course={course} />
+                    ))}
+                  </AnimatePresence>
+                </div>
+              )}
+            </div>
           </motion.div>
         )}
 
