@@ -7,6 +7,8 @@ import Contact from './pages/Contact'
 import Features from './pages/Features'
 import About from './pages/About'
 import Courses from './pages/Courses'
+import AddLessons from './pages/AddLessons'
+
 function App() {
 return (
 <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20 bg-learning-pattern">
