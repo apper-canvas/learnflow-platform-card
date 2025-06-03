@@ -91,8 +91,17 @@ loadData()
               <a href="#features" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Features
               </a>
-<a href="#about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              <a href="#about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 About
+              </a>
+              <a href="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                Courses
+              </a>
+              <a href="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                Add Lessons
+              </a>
+              <a href="/quiz" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                Quiz
               </a>
               <a href="#contact" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Contact
@@ -128,8 +137,17 @@ loadData()
                 <a href="#features" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Features
                 </a>
-<a href="#about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                <a href="#about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   About
+                </a>
+                <a href="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Courses
+                </a>
+                <a href="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Add Lessons
+                </a>
+                <a href="/quiz" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                  Quiz
                 </a>
                 <a href="#contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Contact
@@ -188,8 +206,23 @@ loadData()
                   {stat.label}
                 </div>
               </div>
-))}
+            ))}
           </motion.div>
+        </div>
+</section>
+
+      {/* Main Feature Section */}
+      <section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4">
+              Interactive Course Creation Studio
+            </h2>
+            <p className="text-lg text-surface-600 dark:text-surface-300 max-w-2xl mx-auto">
+              Experience our advanced course builder that makes creating engaging educational content simple and intuitive.
+            </p>
+          </div>
+          <MainFeature />
         </div>
       </section>
 

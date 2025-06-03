@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import Navigation from '../components/Navigation'
 import ApperIcon from '../components/ApperIcon'
 import { lessonService, courseService } from '../services'
+
 const AddLessons = () => {
   const [lessons, setLessons] = useState([])
   const [courses, setCourses] = useState([])
@@ -135,11 +135,46 @@ const handleSubmit = async (e) => {
     return course ? course.title : 'Unknown Course'
 }
 
-return (
+  return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
-      <Navigation />
+      {/* Navigation */}
+      <nav className="bg-white/80 backdrop-blur-sm border-b border-surface-100 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-xl flex items-center justify-center">
+                <ApperIcon name="GraduationCap" className="w-6 h-6 text-white" />
+              </div>
+              <span className="text-xl font-bold text-surface-900">LearnFlow</span>
+            </Link>
 
-      {/* Main Content */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+                Home
+              </Link>
+              <Link to="/features" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+                Features
+              </Link>
+              <Link to="/about" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+                About
+              </Link>
+              <Link to="/courses" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+                Courses
+              </Link>
+              <Link to="/add-lessons" className="text-primary border-b-2 border-primary font-medium">
+                Add Lessons
+              </Link>
+              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+                Contact
+              </Link>
+            </div>
+
+            <button className="btn-primary text-sm py-2 px-4">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
