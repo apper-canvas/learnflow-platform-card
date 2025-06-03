@@ -29,13 +29,30 @@ const MainFeature = () => {
     content: '',
     duration: '',
     videoUrl: ''
+})
+
+  // Quiz creation form state
+  const [quizForm, setQuizForm] = useState({
+    title: '',
+    description: '',
+    timeLimit: '',
+    questions: []
+  })
+
+  // Current question being created
+  const [currentQuestion, setCurrentQuestion] = useState({
+    id: '',
+    type: 'multiple-choice',
+    question: '',
+    options: ['', '', '', ''],
+    correctAnswer: '',
+    points: 1
   })
 
   const categories = [
     'Programming', 'Design', 'Business', 'Marketing', 'Data Science', 
     'Personal Development', 'Photography', 'Music', 'Language', 'Health'
   ]
-
   useEffect(() => {
     const loadData = async () => {
       setLoading(true)
@@ -129,6 +146,106 @@ const MainFeature = () => {
     } finally {
       setLoading(false)
     }
+}
+
+  const handleQuizSubmit = async (e) => {
+    e.preventDefault()
+    
+    if (!quizForm.title.trim() || quizForm.questions.length === 0) {
+      toast.error('Please fill in quiz title and add at least one question')
+      return
+    }
+
+    setLoading(true)
+    try {
+      const newQuiz = {
+        ...quizForm,
+        timeLimit: parseInt(quizForm.timeLimit) || 30,
+        id: `quiz-${Date.now()}`,
+        createdAt: new Date().toISOString()
+      }
+
+      // In a real app, you would call a quiz service here
+      // await quizService.create(newQuiz)
+      
+      setQuizForm({
+        title: '',
+        description: '',
+        timeLimit: '',
+        questions: []
+      })
+      
+      setCurrentQuestion({
+        id: '',
+        type: 'multiple-choice',
+        question: '',
+        options: ['', '', '', ''],
+        correctAnswer: '',
+        points: 1
+      })
+      
+      toast.success('Quiz created successfully!')
+      setActiveTab('manage')
+    } catch (err) {
+      setError(err.message)
+      toast.error('Failed to create quiz')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const addQuestion = () => {
+    if (!currentQuestion.question.trim()) {
+      toast.error('Please enter a question')
+      return
+    }
+
+    if (currentQuestion.type === 'multiple-choice') {
+      const hasEmptyOptions = currentQuestion.options.some(opt => !opt.trim())
+      if (hasEmptyOptions) {
+        toast.error('Please fill in all answer options')
+        return
+      }
+      if (!currentQuestion.correctAnswer) {
+        toast.error('Please select the correct answer')
+        return
+      }
+    }
+
+    if (currentQuestion.type === 'true-false' && !currentQuestion.correctAnswer) {
+      toast.error('Please select the correct answer')
+      return
+    }
+
+    const newQuestion = {
+      ...currentQuestion,
+      id: `question-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+    }
+
+    setQuizForm(prev => ({
+      ...prev,
+      questions: [...prev.questions, newQuestion]
+    }))
+
+    // Reset current question
+    setCurrentQuestion({
+      id: '',
+      type: 'multiple-choice',
+      question: '',
+      options: ['', '', '', ''],
+      correctAnswer: '',
+      points: 1
+    })
+
+    toast.success('Question added successfully!')
+  }
+
+  const removeQuestion = (questionId) => {
+    setQuizForm(prev => ({
+      ...prev,
+      questions: prev.questions.filter(q => q.id !== questionId)
+    }))
+    toast.success('Question removed')
   }
 
   const handleDeleteCourse = async (courseId) => {
@@ -146,7 +263,6 @@ const MainFeature = () => {
       setLoading(false)
     }
   }
-
   const CourseCard = ({ course }) => {
     const courseLessons = lessons.filter(l => l.courseId === course.id) || []
     
@@ -216,12 +332,14 @@ const MainFeature = () => {
   return (
     <div className="max-w-6xl mx-auto">
       {/* Tab Navigation */}
-      <div className="flex flex-wrap justify-center mb-8">
+<div className="flex flex-wrap justify-center mb-8">
         <div className="bg-surface-100 p-2 rounded-2xl flex space-x-2">
           {[
             { id: 'create', label: 'Create Course', icon: 'Plus' },
             { id: 'manage', label: 'Manage Courses', icon: 'Settings' },
-            { id: 'lessons', label: 'Add Lessons', icon: 'BookOpen' }
+            { id: 'lessons', label: 'Add Lessons', icon: 'BookOpen' },
+            { id: 'quiz', label: 'Create Quiz', icon: 'FileQuestion' },
+            { id: 'courses', label: 'Browse Courses', icon: 'BookOpen' }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -514,6 +632,287 @@ const MainFeature = () => {
               </div>
             )}
 </motion.div>
+        )}
+
+        {/* Quiz Builder Tab */}
+        {activeTab === 'quiz' && (
+          <motion.div
+            key="quiz"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-8"
+          >
+            <div className="card p-8">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                  <ApperIcon name="FileQuestion" className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-surface-900">Quiz Builder</h3>
+                  <p className="text-surface-600">Create interactive quizzes for your courses</p>
+                </div>
+              </div>
+
+              <form onSubmit={handleQuizSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Quiz Title *
+                    </label>
+                    <input
+                      type="text"
+                      value={quizForm.title}
+                      onChange={(e) => setQuizForm(prev => ({ ...prev, title: e.target.value }))}
+                      className="input-field"
+                      placeholder="Enter quiz title..."
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-surface-700 mb-2">
+                      Time Limit (minutes)
+                    </label>
+                    <input
+                      type="number"
+                      value={quizForm.timeLimit}
+                      onChange={(e) => setQuizForm(prev => ({ ...prev, timeLimit: e.target.value }))}
+                      className="input-field"
+                      placeholder="30"
+                      min="1"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-surface-700 mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    value={quizForm.description}
+                    onChange={(e) => setQuizForm(prev => ({ ...prev, description: e.target.value }))}
+                    className="input-field min-h-24 resize-none"
+                    placeholder="Enter quiz description and instructions..."
+                  />
+                </div>
+
+                {/* Questions List */}
+                {quizForm.questions.length > 0 && (
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-semibold text-surface-900">Questions ({quizForm.questions.length})</h4>
+                    <div className="space-y-3">
+                      {quizForm.questions.map((question, index) => (
+                        <div key={question.id} className="p-4 border border-surface-200 rounded-xl">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center space-x-2 mb-2">
+                                <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-medium">
+                                  {question.type.replace('-', ' ').toUpperCase()}
+                                </span>
+                                <span className="text-xs text-surface-500">{question.points} point{question.points !== 1 ? 's' : ''}</span>
+                              </div>
+                              <p className="text-surface-900 font-medium mb-2">{question.question}</p>
+                              {question.type === 'multiple-choice' && (
+                                <div className="space-y-1">
+                                  {question.options.map((option, optIndex) => (
+                                    <div key={optIndex} className={`text-sm p-2 rounded ${
+                                      option === question.correctAnswer ? 'bg-green-50 text-green-700' : 'text-surface-600'
+                                    }`}>
+                                      {String.fromCharCode(65 + optIndex)}. {option}
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
+                              {question.type === 'true-false' && (
+                                <div className="text-sm text-surface-600">
+                                  Correct Answer: <span className="font-medium">{question.correctAnswer}</span>
+                                </div>
+                              )}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeQuestion(question.id)}
+                              className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                            >
+                              <ApperIcon name="Trash2" className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Question Builder */}
+                <div className="border-t pt-6">
+                  <h4 className="text-lg font-semibold text-surface-900 mb-4">Add New Question</h4>
+                  
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-surface-700 mb-2">
+                          Question Type
+                        </label>
+                        <select
+                          value={currentQuestion.type}
+                          onChange={(e) => setCurrentQuestion(prev => ({ 
+                            ...prev, 
+                            type: e.target.value,
+                            options: e.target.value === 'multiple-choice' ? ['', '', '', ''] : [],
+                            correctAnswer: ''
+                          }))}
+                          className="input-field"
+                        >
+                          <option value="multiple-choice">Multiple Choice</option>
+                          <option value="true-false">True/False</option>
+                          <option value="short-answer">Short Answer</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-surface-700 mb-2">
+                          Points
+                        </label>
+                        <input
+                          type="number"
+                          value={currentQuestion.points}
+                          onChange={(e) => setCurrentQuestion(prev => ({ ...prev, points: parseInt(e.target.value) || 1 }))}
+                          className="input-field"
+                          min="1"
+                          max="10"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-2">
+                        Question *
+                      </label>
+                      <textarea
+                        value={currentQuestion.question}
+                        onChange={(e) => setCurrentQuestion(prev => ({ ...prev, question: e.target.value }))}
+                        className="input-field min-h-24 resize-none"
+                        placeholder="Enter your question..."
+                      />
+                    </div>
+
+                    {/* Multiple Choice Options */}
+                    {currentQuestion.type === 'multiple-choice' && (
+                      <div className="space-y-3">
+                        <label className="block text-sm font-medium text-surface-700">Answer Options</label>
+                        {currentQuestion.options.map((option, index) => (
+                          <div key={index} className="flex items-center space-x-3">
+                            <span className="text-sm font-medium text-surface-600 w-8">
+                              {String.fromCharCode(65 + index)}.
+                            </span>
+                            <input
+                              type="text"
+                              value={option}
+                              onChange={(e) => {
+                                const newOptions = [...currentQuestion.options]
+                                newOptions[index] = e.target.value
+                                setCurrentQuestion(prev => ({ ...prev, options: newOptions }))
+                              }}
+                              className="input-field flex-1"
+                              placeholder={`Option ${String.fromCharCode(65 + index)}`}
+                            />
+                            <input
+                              type="radio"
+                              name="correctAnswer"
+                              checked={currentQuestion.correctAnswer === option}
+                              onChange={() => setCurrentQuestion(prev => ({ ...prev, correctAnswer: option }))}
+                              className="w-4 h-4 text-primary"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* True/False Options */}
+                    {currentQuestion.type === 'true-false' && (
+                      <div>
+                        <label className="block text-sm font-medium text-surface-700 mb-2">Correct Answer</label>
+                        <div className="flex space-x-4">
+                          <label className="flex items-center space-x-2">
+                            <input
+                              type="radio"
+                              name="trueFalse"
+                              value="True"
+                              checked={currentQuestion.correctAnswer === 'True'}
+                              onChange={(e) => setCurrentQuestion(prev => ({ ...prev, correctAnswer: e.target.value }))}
+                              className="w-4 h-4 text-primary"
+                            />
+                            <span>True</span>
+                          </label>
+                          <label className="flex items-center space-x-2">
+                            <input
+                              type="radio"
+                              name="trueFalse"
+                              value="False"
+                              checked={currentQuestion.correctAnswer === 'False'}
+                              onChange={(e) => setCurrentQuestion(prev => ({ ...prev, correctAnswer: e.target.value }))}
+                              className="w-4 h-4 text-primary"
+                            />
+                            <span>False</span>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Short Answer */}
+                    {currentQuestion.type === 'short-answer' && (
+                      <div>
+                        <label className="block text-sm font-medium text-surface-700 mb-2">
+                          Sample Answer (for reference)
+                        </label>
+                        <input
+                          type="text"
+                          value={currentQuestion.correctAnswer}
+                          onChange={(e) => setCurrentQuestion(prev => ({ ...prev, correctAnswer: e.target.value }))}
+                          className="input-field"
+                          placeholder="Enter a sample correct answer..."
+                        />
+                      </div>
+                    )}
+
+                    <button
+                      type="button"
+                      onClick={addQuestion}
+                      className="btn-secondary flex items-center space-x-2"
+                    >
+                      <ApperIcon name="Plus" className="w-4 h-4" />
+                      <span>Add Question</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-6 border-t">
+                  <div className="text-sm text-surface-600">
+                    {quizForm.questions.length} question{quizForm.questions.length !== 1 ? 's' : ''} added
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={loading || quizForm.questions.length === 0}
+                    className="btn-primary flex items-center space-x-2 disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Creating...</span>
+                      </>
+                    ) : (
+                      <>
+                        <ApperIcon name="FileQuestion" className="w-5 h-5" />
+                        <span>Create Quiz</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </motion.div>
         )}
 
         {/* Courses Tab */}
