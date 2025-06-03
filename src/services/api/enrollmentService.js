@@ -44,4 +44,3 @@ export const delete_ = async (id) => {
   return true
 }
 
-export const delete = delete_
