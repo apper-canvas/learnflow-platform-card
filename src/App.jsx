@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Contact from './pages/Contact'
+import Features from './pages/Features'
 function App() {
 return (
 <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20 bg-learning-pattern">
