@@ -26,8 +26,9 @@ return (
         <Route path="/login" element={<Login />} />
 <Route path="/register" element={<Register />} />
 <Route path="/contact" element={<Contact />} />
-        <Route path="/certifications" element={<Certifications />} />
+<Route path="/certifications" element={<Certifications />} />
         <Route path="/enterprise" element={<Enterprise />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
