@@ -98,16 +98,16 @@ loadData()
                 Courses
               </a>
               <a href="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+<a href="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Add Lessons
               </a>
               <a href="/quiz" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Quiz
               </a>
-              <a href="#contact" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              <Link to="/contact" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Contact
-              </a>
+              </Link>
             </div>
-            
             {/* Desktop Action Buttons */}
 <div className="hidden md:flex items-center space-x-3">
               <button className="btn-secondary">Sign In</button>
@@ -144,14 +144,15 @@ loadData()
                   Courses
                 </a>
                 <a href="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+<a href="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Add Lessons
                 </a>
                 <a href="/quiz" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Quiz
                 </a>
-                <a href="#contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                <Link to="/contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Contact
-                </a>
+                </Link>
                 <div className="pt-4 flex flex-col space-y-3">
                   <button className="btn-secondary w-full">Sign In</button>
                   <button className="btn-primary w-full">Get Started</button>
