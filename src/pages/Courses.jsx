@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { toast } from 'react-toastify'
 import { Search, Filter, BookOpen, Clock, Users, Star, ChevronRight, GraduationCap } from 'lucide-react'
-const [searchTerm, setSearchTerm] = useState('');
+import Navigation from '../components/Navigation'
+import * as courseService from '../services/api/courseService'
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
-      <Navigation />
-      
-      {/* Header */}
+const Courses = () => {
+  const [courses, setCourses] = useState([])
+  const [filteredCourses, setFilteredCourses] = useState([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -36,6 +35,7 @@ const [searchTerm, setSearchTerm] = useState('');
   })
   const [formErrors, setFormErrors] = useState({})
   const [enrolling, setEnrolling] = useState(false)
+
   useEffect(() => {
     fetchCourses()
   }, [])
@@ -79,7 +79,7 @@ const [searchTerm, setSearchTerm] = useState('');
     setFilteredCourses(filtered)
   }
 
-const handleEnroll = (course) => {
+  const handleEnroll = (course) => {
     setSelectedCourse(course)
     setShowEnrollModal(true)
     // Reset form data
@@ -191,6 +191,7 @@ const handleEnroll = (course) => {
     setSelectedCourse(null)
     setFormErrors({})
   }
+
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
       case 'Beginner': return 'text-green-600 bg-green-100'
@@ -205,26 +206,8 @@ const handleEnroll = (course) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 via-primary-50/30 to-secondary-50/20">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-surface-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-surface-900">LearnFlow</span>
-            </Link>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-surface-600 hover:text-primary transition-colors">Home</Link>
-              <Link to="/features" className="text-surface-600 hover:text-primary transition-colors">Features</Link>
-              <Link to="/about" className="text-surface-600 hover:text-primary transition-colors">About</Link>
-              <Link to="/courses" className="text-primary font-medium">Courses</Link>
-              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+      <Navigation />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <motion.div
@@ -384,7 +367,7 @@ const handleEnroll = (course) => {
                   <div>
                     <span className="text-2xl font-bold text-primary">${course.price}</span>
                   </div>
-<button
+                  <button
                     onClick={() => handleEnroll(course)}
                     className="btn-primary flex items-center gap-2 text-sm"
                   >
@@ -408,7 +391,7 @@ const handleEnroll = (course) => {
             <h3 className="text-xl font-semibold text-surface-700 mb-2">No courses found</h3>
             <p className="text-surface-500">Try adjusting your search criteria</p>
           </motion.div>
-)}
+        )}
       </div>
 
       {/* Enrollment Modal */}
