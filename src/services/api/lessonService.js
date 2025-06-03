@@ -40,8 +40,6 @@ export const delete_ = async (id) => {
   const index = lessons.findIndex(l => l.id === id)
   if (index === -1) throw new Error('Lesson not found')
   
-  lessons.splice(index, 1)
+lessons.splice(index, 1)
   return true
 }
-
-export const delete = delete_
