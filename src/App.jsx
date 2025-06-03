@@ -13,11 +13,11 @@ return (
 <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<Features />} />
-        <Route path="/about" element={<About />} />
+<Route path="/about" element={<About />} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      
       <ToastContainer
         position="top-right"
         autoClose={3000}
