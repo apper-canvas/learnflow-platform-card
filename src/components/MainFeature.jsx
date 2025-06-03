@@ -513,6 +513,107 @@ const MainFeature = () => {
                 </form>
               </div>
             )}
+</motion.div>
+        )}
+
+        {/* Courses Tab */}
+        {activeTab === 'courses' && (
+          <motion.div
+            key="courses"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-surface-900 mb-2">Featured Courses</h3>
+              <p className="text-surface-600">Discover our most popular learning experiences</p>
+            </div>
+
+            {loading ? (
+              <div className="card p-8 text-center">
+                <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-surface-600">Loading courses...</p>
+              </div>
+            ) : error ? (
+              <div className="card p-8 text-center">
+                <ApperIcon name="AlertTriangle" className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <p className="text-surface-600">Unable to load courses. Please try again later.</p>
+</div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {courses?.map((course, index) => (
+                  <motion.div
+                    key={course?.id || index}
+                    className="card overflow-hidden group hover:shadow-neu-light dark:hover:shadow-neu-dark"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:scale-110 transition-transform duration-500"></div>
+                      <div className="absolute bottom-4 left-4">
+                        <span className="bg-white/90 backdrop-blur-sm text-surface-800 px-3 py-1 rounded-lg text-sm font-medium">
+                          {course?.category || 'General'}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <ApperIcon 
+                              key={i} 
+                              name="Star" 
+                              className={`w-4 h-4 ${i < Math.floor(course?.rating || 4) ? 'text-secondary fill-current' : 'text-surface-300'}`} 
+                            />
+                          ))}
+                          <span className="text-sm text-surface-600 ml-2">
+                            {course?.rating || 4.5}
+                          </span>
+                        </div>
+                        <span className="text-lg font-bold text-primary">
+                          ${course?.price || 99}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-xl font-semibold text-surface-900 dark:text-white mb-2 line-clamp-2">
+                        {course?.title || 'Course Title'}
+                      </h3>
+                      
+                      <p className="text-surface-600 dark:text-surface-400 text-sm mb-4 line-clamp-3">
+                        {course?.description || 'Course description goes here...'}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4 text-sm text-surface-500">
+                          <div className="flex items-center space-x-1">
+                            <ApperIcon name="Users" className="w-4 h-4" />
+                            <span>{course?.enrollmentCount || 0}</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <ApperIcon name="BookOpen" className="w-4 h-4" />
+                            <span>{course?.lessons?.length || 0} lessons</span>
+                          </div>
+                        </div>
+                        
+                        <button 
+                          onClick={() => {
+                            setSelectedCourse(course)
+                            setShowPreview(true)
+                          }}
+                          className="text-primary hover:text-primary-dark font-medium text-sm transition-colors"
+                        >
+                          Learn More
+                        </button>
+                      </div>
+</div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

@@ -42,5 +42,4 @@ export const delete_ = async (id) => {
   
   courses.splice(index, 1)
   return true
-return true
 }
