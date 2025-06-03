@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import MainFeature from '../components/MainFeature'
 import ApperIcon from '../components/ApperIcon'
 import * as courseService from '../services/api/courseService'
 import * as enrollmentService from '../services/api/enrollmentService'
-
 const Home = () => {
   const [featuredCourses, setFeaturedCourses] = useState([])
   const [enrollments, setEnrollments] = useState([])
