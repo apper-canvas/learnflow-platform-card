@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { BookOpen } from 'lucide-react'
 import MainFeature from '../components/MainFeature'
 import ApperIcon from '../components/ApperIcon'
 import * as courseService from '../services/api/courseService'
-import * as enrollmentService from '../services/api/enrollmentService'
+import * * enrollmentService from '../services/api/enrollmentService'
 const Home = () => {
   const [featuredCourses, setFeaturedCourses] = useState([])
   const [enrollments, setEnrollments] = useState([])
@@ -75,17 +76,17 @@ loadData()
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-lg border-b border-surface-200/50 sticky top-0 z-50 shadow-sm">
+<nav className="bg-white/95 backdrop-blur-lg border-b border-surface-200/50 sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
               <ApperIcon size={32} />
               <span className="text-xl font-bold text-surface-800">LearnFlow</span>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-<a href="#home" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              <a href="#home" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Home
               </a>
               <Link to="/features" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
@@ -94,7 +95,7 @@ loadData()
               <Link to="/about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 About
               </Link>
-<Link to="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              <Link to="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Courses
               </Link>
               <Link to="/add-lessons" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
@@ -107,7 +108,8 @@ loadData()
                 Contact
               </Link>
             </div>
-{/* Desktop Action Buttons */}
+
+            {/* Desktop Action Buttons */}
             <div className="hidden md:flex items-center space-x-3">
               <Link to="/login" className="btn-secondary">Sign In</Link>
               <Link to="/register" className="btn-primary">Get Started</Link>
@@ -127,10 +129,12 @@ loadData()
               </svg>
             </button>
           </div>
+
+          {/* Mobile Menu */}
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t border-surface-200/50 bg-white/95 backdrop-blur-lg">
               <div className="flex flex-col space-y-2">
-<a href="#home" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                <a href="#home" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Home
                 </a>
                 <Link to="/features" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
@@ -139,7 +143,7 @@ loadData()
                 <Link to="/about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   About
                 </Link>
-<Link to="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                <Link to="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Courses
                 </Link>
                 <Link to="/add-lessons" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
@@ -151,7 +155,7 @@ loadData()
                 <Link to="/contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Contact
                 </Link>
-<div className="pt-4 flex flex-col space-y-3">
+                <div className="pt-4 flex flex-col space-y-3">
                   <Link to="/login" className="btn-secondary w-full text-center">Sign In</Link>
                   <Link to="/register" className="btn-primary w-full text-center">Get Started</Link>
                 </div>
@@ -159,7 +163,7 @@ loadData()
             </div>
           )}
         </div>
-</nav>
+      </nav>
 
       {/* Hero Section */}
       <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
@@ -204,7 +208,7 @@ loadData()
                 <div className="text-surface-600 dark:text-surface-400 text-sm">
                   {stat.label}
                 </div>
-</div>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -360,55 +364,146 @@ loadData()
       </section>
 
       {/* Footer */}
-      <footer className="bg-surface-900 dark:bg-surface-800 text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                  <ApperIcon name="GraduationCap" className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">LearnFlow</span>
-              </div>
-              <p className="text-surface-300 mb-4 max-w-md">
-                Empowering learners worldwide with innovative educational technology and interactive learning experiences.
-              </p>
-              <div className="flex space-x-4">
-                <button className="w-10 h-10 bg-surface-800 hover:bg-surface-700 rounded-lg flex items-center justify-center transition-colors">
-                  <ApperIcon name="Twitter" className="w-5 h-5" />
-                </button>
-                <button className="w-10 h-10 bg-surface-800 hover:bg-surface-700 rounded-lg flex items-center justify-center transition-colors">
-                  <ApperIcon name="Linkedin" className="w-5 h-5" />
-                </button>
-                <button className="w-10 h-10 bg-surface-800 hover:bg-surface-700 rounded-lg flex items-center justify-center transition-colors">
-                  <ApperIcon name="Github" className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-            
+      <footer className="bg-surface-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Learn Section */}
             <div>
-              <h4 className="font-semibold mb-4">Platform</h4>
-              <ul className="space-y-2 text-surface-300">
-                <li><a href="#" className="hover:text-white transition-colors">Courses</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Instructors</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Certifications</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Enterprise</a></li>
+              <h3 className="text-lg font-semibold mb-6">Learn</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link 
+                    to="/courses" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Courses
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/instructors" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Instructors
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/certifications" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Certifications
+                  </Link>
+                </li>
               </ul>
             </div>
-            
+
+            {/* Company Section */}
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-surface-300">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-<li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <h3 className="text-lg font-semibold mb-6">Company</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link 
+                    to="/enterprise" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Enterprise
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/about" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/careers" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Careers
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support Section */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">Support</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link 
+                    to="/help-center" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/contact" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/community" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Community
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal Section */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">Legal</h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link 
+                    to="/privacy-policy" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/terms-of-service" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/cookie-policy" 
+                    className="text-surface-300 hover:text-white transition-colors duration-200"
+                  >
+                    Cookie Policy
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
-          
-          <div className="border-t border-surface-700 mt-8 pt-8 text-center text-surface-400">
-            <p>&copy; 2024 LearnFlow. All rights reserved. Built with passion for education.</p>
+
+          <div className="border-t border-surface-700 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="flex items-center space-x-2 mb-4 md:mb-0">
+                <div className="p-2 bg-gradient-to-r from-primary to-secondary rounded-xl">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <span className="text-xl font-bold text-gradient">LearnFlow</span>
+              </div>
+              <p className="text-surface-400 text-sm">
+                © 2024 LearnFlow. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </footer>
