@@ -8,6 +8,7 @@ import Features from './pages/Features'
 import About from './pages/About'
 import Courses from './pages/Courses'
 import AddLessons from './pages/AddLessons'
+import Quiz from './pages/Quiz'
 
 function App() {
 return (
