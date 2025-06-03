@@ -188,23 +188,8 @@ loadData()
                   {stat.label}
                 </div>
               </div>
-            ))}
+))}
           </motion.div>
-        </div>
-</section>
-
-      {/* Main Feature Section */}
-      <section id="courses" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white mb-4">
-              Interactive Course Creation Studio
-            </h2>
-            <p className="text-lg text-surface-600 dark:text-surface-300 max-w-2xl mx-auto">
-              Experience our advanced course builder that makes creating engaging educational content simple and intuitive.
-            </p>
-          </div>
-          <MainFeature />
         </div>
       </section>
 
