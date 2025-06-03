@@ -33,9 +33,10 @@ return (
 <Route path="/certifications" element={<Certifications />} />
 <Route path="/enterprise" element={<Enterprise />} />
 <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+<Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/help-center" element={<HelpCenter />} />
         <Route path="/instructors" element={<Instructors />} />
+        <Route path="/community" element={<Community />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
