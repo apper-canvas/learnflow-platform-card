@@ -85,15 +85,15 @@ loadData()
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-              <a href="#home" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+<a href="#home" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Home
               </a>
-              <a href="#features" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              <Link to="/features" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Features
-              </a>
-              <a href="#about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+              </Link>
+              <Link to="/about" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 About
-              </a>
+              </Link>
               <a href="/courses" className="px-4 py-2 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                 Courses
               </a>
@@ -131,15 +131,15 @@ loadData()
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t border-surface-200/50 bg-white/95 backdrop-blur-lg">
               <div className="flex flex-col space-y-2">
-                <a href="#home" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+<a href="#home" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Home
                 </a>
-                <a href="#features" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                <Link to="/features" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Features
-                </a>
-                <a href="#about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
+                </Link>
+                <Link to="/about" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   About
-                </a>
+                </Link>
                 <a href="/courses" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Courses
                 </a>
