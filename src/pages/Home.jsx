@@ -72,20 +72,20 @@ const Home = () => {
 <span className="text-xl font-bold text-gradient">LearnFlow</span>
             </motion.div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</Link>
-              <Link to="/features" className="text-surface-600 hover:text-primary transition-colors">Features</Link>
+<Link to="/features" className="text-surface-600 hover:text-primary transition-colors">Features</Link>
               <Link to="/about" className="text-surface-600 hover:text-primary transition-colors">About</Link>
+              <Link to="/courses" className="text-surface-600 hover:text-primary transition-colors">Courses</Link>
+              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors">Contact</Link>
             </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-lg bg-surface-100 hover:bg-surface-200 transition-colors"
-              >
-                <ApperIcon name={darkMode ? "Sun" : "Moon"} className="w-5 h-5" />
-              </button>
-              <button className="btn-primary text-sm py-2 px-4">
-                Get Started
-              </button>
+<button 
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg bg-surface-100 hover:bg-surface-200 transition-colors"
+            >
+              <ApperIcon name={darkMode ? "Sun" : "Moon"} className="w-5 h-5" />
+            </button>
+            <button className="btn-primary text-sm py-2 px-4">
+              Get Started
+            </button>
             </div>
           </div>
         </div>
