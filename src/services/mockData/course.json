@@ -1,0 +1,122 @@
+[
+  {
+    "id": "course-1",
+    "title": "Complete Web Development Bootcamp",
+    "description": "Master full-stack web development with HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build real-world projects and deploy professional applications.",
+    "instructorId": "instructor-1",
+    "lessons": ["lesson-1", "lesson-2", "lesson-3", "lesson-4"],
+    "price": 149.99,
+    "category": "Programming",
+    "enrollmentCount": 1247,
+    "rating": 4.8,
+    "createdAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "course-2",
+    "title": "Digital Marketing Mastery",
+    "description": "Learn SEO, social media marketing, content creation, email marketing, and paid advertising strategies to grow your business online.",
+    "instructorId": "instructor-2",
+    "lessons": ["lesson-5", "lesson-6", "lesson-7"],
+    "price": 89.99,
+    "category": "Marketing",
+    "enrollmentCount": 856,
+    "rating": 4.6,
+    "createdAt": "2024-01-20T14:30:00Z"
+  },
+  {
+    "id": "course-3",
+    "title": "Data Science with Python",
+    "description": "Dive into data analysis, machine learning, and visualization using Python, pandas, NumPy, scikit-learn, and Matplotlib.",
+    "instructorId": "instructor-3",
+    "lessons": ["lesson-8", "lesson-9", "lesson-10", "lesson-11"],
+    "price": 199.99,
+    "category": "Data Science",
+    "enrollmentCount": 673,
+    "rating": 4.9,
+    "createdAt": "2024-01-25T09:15:00Z"
+  },
+  {
+    "id": "course-4",
+    "title": "UI/UX Design Fundamentals",
+    "description": "Master user interface and user experience design principles, wireframing, prototyping, and design tools like Figma and Adobe XD.",
+    "instructorId": "instructor-4",
+    "lessons": ["lesson-12", "lesson-13", "lesson-14"],
+    "price": 119.99,
+    "category": "Design",
+    "enrollmentCount": 924,
+    "rating": 4.7,
+    "createdAt": "2024-02-01T11:45:00Z"
+  },
+  {
+    "id": "course-5",
+    "title": "Business Strategy & Leadership",
+    "description": "Develop strategic thinking, leadership skills, team management, and business planning techniques for modern organizations.",
+    "instructorId": "instructor-5",
+    "lessons": ["lesson-15", "lesson-16", "lesson-17", "lesson-18"],
+    "price": 179.99,
+    "category": "Business",
+    "enrollmentCount": 432,
+    "rating": 4.5,
+    "createdAt": "2024-02-05T16:20:00Z"
+  },
+  {
+    "id": "course-6",
+    "title": "Photography Masterclass",
+    "description": "Learn composition, lighting, editing, and storytelling techniques to capture stunning photographs with any camera equipment.",
+    "instructorId": "instructor-6",
+    "lessons": ["lesson-19", "lesson-20", "lesson-21"],
+    "price": 129.99,
+    "category": "Photography",
+    "enrollmentCount": 589,
+    "rating": 4.8,
+    "createdAt": "2024-02-10T13:10:00Z"
+  },
+  {
+    "id": "course-7",
+    "title": "Spanish Language Complete Course",
+    "description": "From beginner to advanced Spanish conversation, grammar, vocabulary, and cultural understanding with native speakers.",
+    "instructorId": "instructor-7",
+    "lessons": ["lesson-22", "lesson-23", "lesson-24", "lesson-25"],
+    "price": 99.99,
+    "category": "Language",
+    "enrollmentCount": 1156,
+    "rating": 4.6,
+    "createdAt": "2024-02-12T08:30:00Z"
+  },
+  {
+    "id": "course-8",
+    "title": "Personal Finance & Investment",
+    "description": "Master budgeting, saving, investing, retirement planning, and building long-term wealth through smart financial decisions.",
+    "instructorId": "instructor-8",
+    "lessons": ["lesson-26", "lesson-27", "lesson-28"],
+    "price": 79.99,
+    "category": "Personal Development",
+    "enrollmentCount": 743,
+    "rating": 4.4,
+    "createdAt": "2024-02-15T15:45:00Z"
+  },
+  {
+    "id": "course-9",
+    "title": "Yoga & Mindfulness Practice",
+    "description": "Improve physical flexibility, mental clarity, and emotional balance through guided yoga sessions and mindfulness meditation.",
+    "instructorId": "instructor-9",
+    "lessons": ["lesson-29", "lesson-30", "lesson-31", "lesson-32"],
+    "price": 59.99,
+    "category": "Health",
+    "enrollmentCount": 892,
+    "rating": 4.7,
+    "createdAt": "2024-02-18T07:00:00Z"
+  },
+  {
+    "id": "course-10",
+    "title": "Music Production & Audio Engineering",
+    "description": "Create professional music tracks using DAW software, mixing techniques, mastering, and sound design principles.",
+    "instructorId": "instructor-10",
+    "lessons": ["lesson-33", "lesson-34", "lesson-35"],
+    "price": 169.99,
+    "category": "Music",
+    "enrollmentCount": 378,
+    "rating": 4.9,
+    "createdAt": "2024-02-20T12:25:00Z"
+  }
+]

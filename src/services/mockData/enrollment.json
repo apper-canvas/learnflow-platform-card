@@ -1,0 +1,146 @@
+[
+  {
+    "id": "enrollment-1",
+    "userId": "user-1",
+    "courseId": "course-1",
+    "progress": 75,
+    "completedLessons": ["lesson-1", "lesson-2", "lesson-3"],
+    "enrolledAt": "2024-01-15T10:30:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-2",
+    "userId": "user-1",
+    "courseId": "course-4",
+    "progress": 45,
+    "completedLessons": ["lesson-12"],
+    "enrolledAt": "2024-01-20T14:15:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-3",
+    "userId": "user-1",
+    "courseId": "course-9",
+    "progress": 100,
+    "completedLessons": ["lesson-29", "lesson-30", "lesson-31", "lesson-32"],
+    "enrolledAt": "2024-01-10T09:00:00Z",
+    "completedAt": "2024-02-14T16:45:00Z"
+  },
+  {
+    "id": "enrollment-4",
+    "userId": "user-3",
+    "courseId": "course-2",
+    "progress": 67,
+    "completedLessons": ["lesson-5", "lesson-6"],
+    "enrolledAt": "2024-01-22T11:20:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-5",
+    "userId": "user-3",
+    "courseId": "course-6",
+    "progress": 33,
+    "completedLessons": ["lesson-19"],
+    "enrolledAt": "2024-02-01T13:45:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-6",
+    "userId": "user-3",
+    "courseId": "course-8",
+    "progress": 90,
+    "completedLessons": ["lesson-26", "lesson-27"],
+    "enrolledAt": "2024-01-25T08:30:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-7",
+    "userId": "user-5",
+    "courseId": "course-3",
+    "progress": 50,
+    "completedLessons": ["lesson-8", "lesson-9"],
+    "enrolledAt": "2024-01-30T15:10:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-8",
+    "userId": "user-5",
+    "courseId": "course-7",
+    "progress": 25,
+    "completedLessons": ["lesson-22"],
+    "enrolledAt": "2024-02-05T10:20:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-9",
+    "userId": "user-6",
+    "courseId": "course-1",
+    "progress": 100,
+    "completedLessons": ["lesson-1", "lesson-2", "lesson-3", "lesson-4"],
+    "enrolledAt": "2024-01-18T12:00:00Z",
+    "completedAt": "2024-02-28T18:30:00Z"
+  },
+  {
+    "id": "enrollment-10",
+    "userId": "user-6",
+    "courseId": "course-3",
+    "progress": 80,
+    "completedLessons": ["lesson-8", "lesson-9", "lesson-10"],
+    "enrolledAt": "2024-01-28T09:45:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-11",
+    "userId": "user-6",
+    "courseId": "course-5",
+    "progress": 40,
+    "completedLessons": ["lesson-15"],
+    "enrolledAt": "2024-02-10T14:30:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-12",
+    "userId": "user-8",
+    "courseId": "course-4",
+    "progress": 85,
+    "completedLessons": ["lesson-12", "lesson-13"],
+    "enrolledAt": "2024-01-24T16:15:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-13",
+    "userId": "user-8",
+    "courseId": "course-8",
+    "progress": 60,
+    "completedLessons": ["lesson-26"],
+    "enrolledAt": "2024-02-02T11:00:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-14",
+    "userId": "user-8",
+    "courseId": "course-10",
+    "progress": 30,
+    "completedLessons": ["lesson-33"],
+    "enrolledAt": "2024-02-12T13:20:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-15",
+    "userId": "user-9",
+    "courseId": "course-6",
+    "progress": 70,
+    "completedLessons": ["lesson-19", "lesson-20"],
+    "enrolledAt": "2024-01-26T10:40:00Z",
+    "completedAt": null
+  },
+  {
+    "id": "enrollment-16",
+    "userId": "user-9",
+    "courseId": "course-9",
+    "progress": 55,
+    "completedLessons": ["lesson-29", "lesson-30"],
+    "enrolledAt": "2024-02-08T07:15:00Z",
+    "completedAt": null
+  }
+]

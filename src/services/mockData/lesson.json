@@ -1,0 +1,152 @@
+[
+  {
+    "id": "lesson-1",
+    "courseId": "course-1",
+    "title": "Introduction to HTML & CSS",
+    "content": "Learn the fundamentals of HTML structure and CSS styling. Understand semantic markup, basic selectors, and layout principles.",
+    "videoUrl": "https://example.com/videos/html-css-intro.mp4",
+    "duration": 45,
+    "order": 1,
+    "assignments": ["assignment-1"]
+  },
+  {
+    "id": "lesson-2",
+    "courseId": "course-1", 
+    "title": "JavaScript Fundamentals",
+    "content": "Master variables, functions, arrays, objects, and control structures in JavaScript. Build interactive web elements.",
+    "videoUrl": "https://example.com/videos/javascript-basics.mp4",
+    "duration": 60,
+    "order": 2,
+    "assignments": ["assignment-2"]
+  },
+  {
+    "id": "lesson-3",
+    "courseId": "course-1",
+    "title": "React Components & State",
+    "content": "Dive into React component architecture, props, state management, and lifecycle methods for dynamic UIs.",
+    "videoUrl": "https://example.com/videos/react-components.mp4",
+    "duration": 75,
+    "order": 3,
+    "assignments": ["assignment-3"]
+  },
+  {
+    "id": "lesson-4",
+    "courseId": "course-1",
+    "title": "Backend Development with Node.js",
+    "content": "Build RESTful APIs, handle databases, authentication, and deploy full-stack applications.",
+    "videoUrl": "https://example.com/videos/nodejs-backend.mp4",
+    "duration": 90,
+    "order": 4,
+    "assignments": ["assignment-4"]
+  },
+  {
+    "id": "lesson-5",
+    "courseId": "course-2",
+    "title": "SEO Optimization Strategies",
+    "content": "Learn keyword research, on-page optimization, technical SEO, and link building techniques.",
+    "videoUrl": "https://example.com/videos/seo-strategies.mp4",
+    "duration": 50,
+    "order": 1,
+    "assignments": ["assignment-5"]
+  },
+  {
+    "id": "lesson-6",
+    "courseId": "course-2",
+    "title": "Social Media Marketing",
+    "content": "Create engaging content, understand platform algorithms, and build brand presence across social channels.",
+    "videoUrl": "https://example.com/videos/social-media.mp4",
+    "duration": 40,
+    "order": 2,
+    "assignments": ["assignment-6"]
+  },
+  {
+    "id": "lesson-7",
+    "courseId": "course-2",
+    "title": "Email Marketing Campaigns",
+    "content": "Design effective email sequences, automation workflows, and measure campaign performance.",
+    "videoUrl": "https://example.com/videos/email-marketing.mp4",
+    "duration": 35,
+    "order": 3,
+    "assignments": ["assignment-7"]
+  },
+  {
+    "id": "lesson-8",
+    "courseId": "course-3",
+    "title": "Python Data Analysis Basics",
+    "content": "Introduction to pandas, NumPy, and data manipulation techniques for exploratory data analysis.",
+    "videoUrl": "https://example.com/videos/python-data-basics.mp4",
+    "duration": 65,
+    "order": 1,
+    "assignments": ["assignment-8"]
+  },
+  {
+    "id": "lesson-9",
+    "courseId": "course-3",
+    "title": "Machine Learning Algorithms",
+    "content": "Understand supervised and unsupervised learning, regression, classification, and clustering methods.",
+    "videoUrl": "https://example.com/videos/ml-algorithms.mp4",
+    "duration": 80,
+    "order": 2,
+    "assignments": ["assignment-9"]
+  },
+  {
+    "id": "lesson-10",
+    "courseId": "course-3",
+    "title": "Data Visualization with Matplotlib",
+    "content": "Create compelling charts, graphs, and interactive visualizations to communicate insights.",
+    "videoUrl": "https://example.com/videos/data-visualization.mp4",
+    "duration": 55,
+    "order": 3,
+    "assignments": ["assignment-10"]
+  },
+  {
+    "id": "lesson-11",
+    "courseId": "course-3",
+    "title": "Advanced Statistics & Modeling",
+    "content": "Statistical testing, hypothesis validation, and advanced modeling techniques for data science.",
+    "videoUrl": "https://example.com/videos/advanced-stats.mp4",
+    "duration": 70,
+    "order": 4,
+    "assignments": ["assignment-11"]
+  },
+  {
+    "id": "lesson-12",
+    "courseId": "course-4",
+    "title": "Design Thinking & User Research",
+    "content": "Understand user-centered design process, research methods, and persona development.",
+    "videoUrl": "https://example.com/videos/design-thinking.mp4",
+    "duration": 45,
+    "order": 1,
+    "assignments": ["assignment-12"]
+  },
+  {
+    "id": "lesson-13",
+    "courseId": "course-4",
+    "title": "Wireframing & Prototyping",
+    "content": "Create low and high-fidelity wireframes, interactive prototypes using modern design tools.",
+    "videoUrl": "https://example.com/videos/wireframing.mp4",
+    "duration": 60,
+    "order": 2,
+    "assignments": ["assignment-13"]
+  },
+  {
+    "id": "lesson-14",
+    "courseId": "course-4",
+    "title": "Visual Design & Typography",
+    "content": "Master color theory, typography, layout principles, and creating cohesive visual systems.",
+    "videoUrl": "https://example.com/videos/visual-design.mp4",
+    "duration": 55,
+    "order": 3,
+    "assignments": ["assignment-14"]
+  },
+  {
+    "id": "lesson-15",
+    "courseId": "course-5",
+    "title": "Strategic Planning & Analysis",
+    "content": "Learn SWOT analysis, competitive research, and strategic framework development.",
+    "videoUrl": "https://example.com/videos/strategic-planning.mp4",
+    "duration": 50,
+    "order": 1,
+    "assignments": ["assignment-15"]
+  }
+]

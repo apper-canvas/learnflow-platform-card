@@ -1,0 +1,137 @@
+[
+  {
+    "id": "assignment-1",
+    "lessonId": "lesson-1",
+    "title": "Build Your First Webpage",
+    "description": "Create a personal portfolio webpage using HTML and CSS. Include navigation, content sections, and responsive design.",
+    "dueDate": "2024-03-15T23:59:59Z",
+    "maxScore": 100,
+    "submissions": ["submission-1", "submission-2"]
+  },
+  {
+    "id": "assignment-2",
+    "lessonId": "lesson-2",
+    "title": "Interactive Calculator",
+    "description": "Build a fully functional calculator using JavaScript. Include basic arithmetic operations and error handling.",
+    "dueDate": "2024-03-22T23:59:59Z",
+    "maxScore": 100,
+    "submissions": ["submission-3"]
+  },
+  {
+    "id": "assignment-3",
+    "lessonId": "lesson-3",
+    "title": "React Todo Application",
+    "description": "Create a todo list app with React. Implement add, edit, delete, and filter functionality using hooks.",
+    "dueDate": "2024-03-29T23:59:59Z",
+    "maxScore": 150,
+    "submissions": []
+  },
+  {
+    "id": "assignment-4",
+    "lessonId": "lesson-4",
+    "title": "RESTful API Development",
+    "description": "Build a complete REST API for a blog system with user authentication and CRUD operations.",
+    "dueDate": "2024-04-05T23:59:59Z",
+    "maxScore": 200,
+    "submissions": []
+  },
+  {
+    "id": "assignment-5",
+    "lessonId": "lesson-5",
+    "title": "SEO Audit Report",
+    "description": "Conduct a comprehensive SEO audit of a website and provide improvement recommendations.",
+    "dueDate": "2024-03-18T23:59:59Z",
+    "maxScore": 100,
+    "submissions": ["submission-4"]
+  },
+  {
+    "id": "assignment-6",
+    "lessonId": "lesson-6",
+    "title": "Social Media Campaign Strategy",
+    "description": "Design a 30-day social media campaign for a brand including content calendar and engagement tactics.",
+    "dueDate": "2024-03-25T23:59:59Z",
+    "maxScore": 120,
+    "submissions": []
+  },
+  {
+    "id": "assignment-7",
+    "lessonId": "lesson-7",
+    "title": "Email Marketing Automation",
+    "description": "Create an email sequence for customer onboarding with automation triggers and personalization.",
+    "dueDate": "2024-04-01T23:59:59Z",
+    "maxScore": 100,
+    "submissions": []
+  },
+  {
+    "id": "assignment-8",
+    "lessonId": "lesson-8",
+    "title": "Data Analysis Project",
+    "description": "Analyze a real dataset using pandas and present insights with visualizations and statistical summaries.",
+    "dueDate": "2024-03-20T23:59:59Z",
+    "maxScore": 150,
+    "submissions": ["submission-5"]
+  },
+  {
+    "id": "assignment-9",
+    "lessonId": "lesson-9",
+    "title": "Machine Learning Model",
+    "description": "Build and evaluate a predictive model using scikit-learn. Include model selection and performance metrics.",
+    "dueDate": "2024-03-27T23:59:59Z",
+    "maxScore": 180,
+    "submissions": []
+  },
+  {
+    "id": "assignment-10",
+    "lessonId": "lesson-10",
+    "title": "Interactive Dashboard",
+    "description": "Create an interactive data dashboard using Python visualization libraries to tell a data story.",
+    "dueDate": "2024-04-03T23:59:59Z",
+    "maxScore": 160,
+    "submissions": []
+  },
+  {
+    "id": "assignment-11",
+    "lessonId": "lesson-11",
+    "title": "Statistical Analysis Report",
+    "description": "Conduct hypothesis testing and statistical analysis on a business problem with actionable recommendations.",
+    "dueDate": "2024-04-10T23:59:59Z",
+    "maxScore": 140,
+    "submissions": []
+  },
+  {
+    "id": "assignment-12",
+    "lessonId": "lesson-12",
+    "title": "User Research Study",
+    "description": "Conduct user interviews and create personas based on research findings for a mobile app concept.",
+    "dueDate": "2024-03-19T23:59:59Z",
+    "maxScore": 120,
+    "submissions": ["submission-6"]
+  },
+  {
+    "id": "assignment-13",
+    "lessonId": "lesson-13",
+    "title": "High-Fidelity Prototype",
+    "description": "Design and prototype a complete user flow for an e-commerce checkout process with interactions.",
+    "dueDate": "2024-03-26T23:59:59Z",
+    "maxScore": 150,
+    "submissions": []
+  },
+  {
+    "id": "assignment-14",
+    "lessonId": "lesson-14",
+    "title": "Brand Identity Design",
+    "description": "Create a complete brand identity system including logo, color palette, typography, and style guide.",
+    "dueDate": "2024-04-02T23:59:59Z",
+    "maxScore": 170,
+    "submissions": []
+  },
+  {
+    "id": "assignment-15",
+    "lessonId": "lesson-15",
+    "title": "Business Strategy Presentation",
+    "description": "Develop a comprehensive business strategy presentation for market expansion including financial projections.",
+    "dueDate": "2024-03-21T23:59:59Z",
+    "maxScore": 130,
+    "submissions": []
+  }
+]
