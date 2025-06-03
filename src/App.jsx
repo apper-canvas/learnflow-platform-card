@@ -23,8 +23,9 @@ return (
         <Route path="/add-lessons" element={<AddLessons />} />
 <Route path="/quiz" element={<Quiz />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+<Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/certifications" element={<Certifications />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
