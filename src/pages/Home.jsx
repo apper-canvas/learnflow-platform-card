@@ -151,9 +151,9 @@ loadData()
                 <Link to="/contact" className="px-4 py-3 text-surface-700 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium">
                   Contact
                 </Link>
-                <div className="pt-4 flex flex-col space-y-3">
-                  <button className="btn-secondary w-full">Sign In</button>
-                  <button className="btn-primary w-full">Get Started</button>
+<div className="pt-4 flex flex-col space-y-3">
+                  <Link to="/login" className="btn-secondary w-full text-center">Sign In</Link>
+                  <Link to="/register" className="btn-primary w-full text-center">Get Started</Link>
                 </div>
               </div>
             </div>
