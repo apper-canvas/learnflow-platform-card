@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
       {/* Navigation */}
-      <nav className="bg-glass fixed top-0 left-0 right-0 z-50 border-b border-surface-200/50">
+<nav className="bg-glass fixed top-0 left-0 right-0 z-50 border-b border-surface-200/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <motion.div 
@@ -65,28 +65,25 @@ const Home = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
->
+            >
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
                 <ApperIcon name="GraduationCap" className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gradient">LearnFlow</span>
+              <span className="text-xl font-bold text-surface-900 dark:text-white">LearnFlow</span>
             </motion.div>
-            
+
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/features" className="text-surface-600 hover:text-primary transition-colors">
-                Features
-              </Link>
-              <Link to="/courses" className="text-surface-600 hover:text-primary transition-colors">
+              <Link to="/courses" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
                 Courses
               </Link>
-              <Link to="/about" className="text-surface-600 hover:text-primary transition-colors">
-                About
+              <Link to="/add-lessons" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
+                Add Lessons
               </Link>
-              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors">
+              <Link to="/contact" className="text-surface-600 hover:text-primary transition-colors duration-200 font-medium">
                 Contact
               </Link>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <button 
                 onClick={toggleDarkMode}
